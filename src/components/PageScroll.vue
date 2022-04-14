@@ -6,7 +6,7 @@
       @mousewheel="mouseWheelHandle"
       @DOMMouseScroll="mouseWheelHandle"
     >
-      <div class="section section1">1</div>
+      <home-view />
       <div class="section section2">2</div>
       <div class="section section3">3</div>
       <div class="section section4">4</div>
@@ -16,8 +16,10 @@
 </template>
 
 <script>
+import HomeView from "@/pages/home/homeView.vue"
 export default {
   name: 'PageScroll',
+  components: { HomeView },
   data() {
     return {
       isHeaderClick: false,
@@ -54,7 +56,7 @@ export default {
       this.directToMove(index); //执行滚动
       setTimeout(() => {       //这里的动画是1s执行完，使用setTimeout延迟1s后解锁
         this.fullpage.isScrolling = false;
-      }, 500);
+      }, 800);
     },
     directToMove(index) {
       let height = this.$refs["fullPage"].clientHeight;  //获取屏幕的宽度
@@ -114,21 +116,6 @@ export default {
 .section1 {
   background-color: rgb(18, 21, 25);
   /* background: url("@/assets/intro-bg.png"); */
-}
-.section1 .secction1-content {
-  color: #fff;
-  text-align: center;
-  position: absolute;
-  top: 40%;
-  right: 0;
-  left: 0;
-}
-.secction1-content h1 {
-  font-size: 40px;
-  padding-bottom: 30px;
-}
-.secction1-content p {
-  font-size: 20px;
 }
 .section2 {
   /* background-color: #131516; */
